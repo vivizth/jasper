@@ -1,0 +1,38 @@
+{{ define "main" }}
+	<main class="single">
+		<article>
+			<h1 class="font-xl">{{ .Title }}</h1>
+
+			<div class="div-col type-wrap">
+				<a href="/{{.Type}}" class="type">{{.Type}}</a> 
+				<time class="div-block">{{ .Date.Format "2 Jan, 2006" }}</time>
+			</div>
+			
+			<div class="single-content">
+				{{ replace .Content "<!--adsense-->" (partial "adsense-inarticle.html" .) | safeHTML }}
+			</div>
+			{{ with .Site.DisqusShortname }}
+			<div>
+				{{ template "_internal/disqus.html" . }}
+			</div>
+			{{ end }}
+
+		</article>
+
+		{{ with .Params.tags }}
+		<div class="div-col">
+			<div class="tag-title">Tags</div>   
+			<ul class="tags div-col">
+				{{ range . }}
+				<li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"># {{ . }}</a></li>
+				{{ end }}
+			</ul>
+		</div>
+		{{ end }}
+
+		<div class="hl">
+			<h3>เรื่องที่เกี่ยวข้อง</h3>
+		</div>
+	</main>
+	{{ partial "related.html" . }}
+{{ end }}

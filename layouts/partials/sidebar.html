@@ -1,0 +1,25 @@
+<aside>
+	{{ $related := .Site.RegularPages.Related . | first 5 }}
+	{{ with $related }}
+	<h4>เรื่องอื่นๆ</h4>
+	<ul>
+		{{ range . }}
+			<li>
+				<a href="{{ .RelPermalink }}" class="div-col">
+					{{ $img := (.Resources.ByType "image").GetMatch "imgs/*" }}
+					{{ with $img }}
+						{{ $small := .Resize "65x" }}
+						<figure>
+							<img src="{{ $small.Permalink }}" alt="{{ $.Title }}">
+						</figure>
+					{{ end }}
+					<p>
+						{{ .Title }} <br/>
+						{{.Summary | truncate 50}}
+					</p>
+				</a>
+			</li>
+		{{ end }}
+	</ul>
+	{{ end }}
+</aside>

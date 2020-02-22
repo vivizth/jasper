@@ -1,0 +1,40 @@
+<article>
+	<a href="{{ .Permalink }}">
+
+	<!-- Cover image -->
+	{{ with .Resources }}
+			{{ with .GetMatch "{cover.*,*.jpg,*.png,*.jpeg}" }}
+					{{ $cover := .Resize "400x" }}
+					{{ with $cover }}
+							<figure>
+								<img src="{{ .Permalink }}" alt="{{ $.Title }}" class="img-fill">
+							</figure>  
+					{{ end }}
+			{{ end }}
+	{{ end }}
+
+	<h1 class="stitle">{{ .Title }}</h1>
+	</a>
+	
+	<div class="div-col type-wrap">
+		<a href="/{{.Type}}" class="type">{{.Type}}</a> 
+		<time class="div-block">{{ .Date.Format "2 Jan, 2006" }}</time>
+	</div>
+	<ul class="tags">
+		{{ range .Params.tags }} 
+		<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class=""># {{ . }}</a>
+		{{ end }}
+	</ul>
+	
+	<!-- <p>
+		{{ .Summary }}
+		{{ if .Truncated }}
+			<a href="{{ .Permalink }}" class="readMore">Read more...</a>
+		{{ end }}
+
+		{{ range .Params.tags }}
+		<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="">{{ . }}</a>
+		{{ end }}
+		{{.Type}}
+	</p> -->
+</article>

@@ -1,0 +1,9 @@
+name = "jasper"
+license = "MIT"
+description = "A simple hugo themes."
+homepage = "https://github.com/vivizth/jasper"
+features = ["blog"]
+
+[author]
+  name = "Vivizth"
+  homepage = "https://github.com/vivizth"

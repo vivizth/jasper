@@ -1,0 +1,28 @@
+<header class="div-col flex-col">
+	<div class="logo-wrap">	
+		<a href="{{ .Site.BaseURL }}" class="logo" title="{{.Site.Params.title}}">
+			<!-- <img src="/static/s.png"/> -->
+			<span class="logo-main">{{ .Site.Params.title }}</span>
+			<span class="logo-sub">
+				desc
+			</span>
+		</a>
+	</div>
+	<nav class="menu">
+		<ul>
+			<li {{ with .IsHome }}class="selected"{{ end }}>
+				<a href="{{ .Site.BaseURL }}">
+					Latest
+				</a>
+			</li>
+			{{ $url := .URL }}
+			{{ range .Site.Sections }}
+			<li {{ if in $url .URL }}class="selected"{{ end }} >
+				<a href="{{ .Page.RelPermalink }}">
+					{{ .Page.Title }}
+				</a>
+			</li>
+			{{ end }}
+		</ul>
+	</nav>
+</header>

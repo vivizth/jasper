@@ -1,0 +1,15 @@
+{{ define "main" }}
+	<main>
+		<div class="front-article">
+			{{ $paginator := .Paginate (.Site.RegularPages) }}
+			{{ range $paginator.Pages }}
+				{{ .Render "summary" }}
+			{{ end }}
+		</div>
+
+		{{ partial "pagination.html" . }}
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+	</main>
+	<!-- {{ partial "sidebar.html" . }} -->
+{{ end }}
