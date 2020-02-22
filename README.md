@@ -3,6 +3,7 @@ A simple hugo theme
 
 Add following config to config.toml
 
+```
 [params]
   header_title = ""
   header_desc = ""
@@ -14,3 +15,4 @@ Add following config to config.toml
   menu_font_color = "#000"
   tag_border_color = "#007365"
   tag_font_color = ""
+```
