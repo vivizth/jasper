@@ -1,0 +1,26 @@
+<style>
+    .logo > img {
+        width: {{ .Site.Params.logo_width }}
+    }
+    blockquote {
+        border-left: 3px solid {{ .Site.Params.primary_color }};
+    }
+    .menu li.selected {
+        background: {{ .Site.Params.primary_color }}!important;
+    }
+
+    .menu li.selected a {color: {{ .Site.Params.menu_font_color }}; }
+
+    .single-content a {
+        border-bottom: 3px solid {{ .Site.Params.primary_color }};
+    }
+
+    .front-article article {
+        border-bottom: 3px solid {{ .Site.Params.primary_color }};
+    }
+    .tags a, .tag-item{
+        background: {{ .Site.Params.primary_color }}!important;
+        color: {{ .Site.Params.tag_font_color }}!important;
+        border: 2px solid {{ .Site.Params.tag_border_color }} ;
+        }
+</style>

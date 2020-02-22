@@ -23,9 +23,6 @@
 	 <meta property="og:description" content="{{ .Description }}">
 	 <meta property="og:url" content="{{ .Permalink }}">
 	 <meta property="og:site_name" content="{{ .Site.Title }}">
-	 <!-- {{ if .Params.thumbnail }}
-	 <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.thumbnail }}">
-	 {{ end }} -->
 	 {{ $img := (.Resources.ByType "image").GetMatch "{cover.*,*.jpg,*.png,*.jpeg}" }}
 	 {{ with $img }}
 		 {{ $small := .Resize "180x" }}
@@ -51,6 +48,7 @@
 	 <!-- End of Twitter -->
 	 {{ template "_internal/google_analytics.html" . }}
 </head>
+{{ partial "custom_style" . }}
 <body>
 	{{ partial "header" . }}
 	<div id="wrap">

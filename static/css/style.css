@@ -29,7 +29,6 @@ aside {
 }
 figure { margin: 0;}
 blockquote{
-    border-left: 3px solid #0fd;
     margin-left: 20px;
     padding-left: 10px;
     font-style:  italic;
@@ -67,7 +66,6 @@ blockquote{
     width: 80%;
 }
 .logo > img {
-    width: 32px;
     margin-right: 6px;
 }
 .logo-main {
@@ -98,15 +96,12 @@ blockquote{
     margin-right: 3px;
 }
 .menu li.selected {
-    background: #0c4cff!important;
-    color: #007363!important;
     padding: .3em .8em;
     border-radius: 1em;
     /* border: 2px solid #007365 ; */
     align-self: center;
     font-weight: bold;
 }
-.menu li.selected a {color: white; }
 
 /* post */
 article {
@@ -118,18 +113,12 @@ article {
     display: flex;
     flex-wrap: wrap;
 }
-.front-article article {
-    border-bottom: 3px solid #0fd;
-}
 
 /* object */
 .readMore { display: block; font-size: .8em; margin-top: .9em;}
 .tags a, .tag-item{
-    background: #0fd!important;
-    color: #007363!important;
     padding: .2em .5em;
     border-radius: .3em;
-    border: 2px solid #007365 ;
     font-size: 1em;
 }
 .tags li { margin-right: 5px;}
@@ -197,10 +186,6 @@ article {
 .single-content img {
     border-radius: 1em; 
     max-width: 100%;
-} 
-.single-content a {
-    /* background-color: #0fd; */
-    border-bottom: 3px solid #0fd;
 }
 
 /* responsive */
