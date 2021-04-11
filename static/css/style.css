@@ -171,6 +171,9 @@ article {
 .flex-col {
     flex-direction: column;;
 }
+.flex-row {
+    flex-direction: row;
+}
 .div-space {
     justify-content: space-between;
 }
@@ -180,6 +183,16 @@ article {
     object-fit: cover;
     border-radius: 1em;
 }
+.relate {
+    border-bottom: 1px solid black;
+}
+.align-center{
+    align-items: center;
+}
+.thumb-round {
+    border-radius: 6px;
+}
+.mr-m {margin-right: 20px;}
 
 /* single */
 .single { width: 100vw; }
