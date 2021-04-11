@@ -8,10 +8,11 @@
 	{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
 	<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+	<link rel="canonical" href="{{ .Permalink }}" >
+	<link rel="sitemap" href="{{ "sitemap.xml" | absURL }}" type="application/xml" />
 	{{ with .OutputFormats.Get "RSS" -}}
 		{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 	{{- end }}
-
 	 <!-- Start of Open Graph -->
 	 <meta property="og:title" content="{{ .Title }}">
 	 {{ if .IsPage }}
@@ -52,6 +53,15 @@
 </head>
 {{ partial "custom_style" . }}
 <body>
+<!-- Rich result -->
+{{ if .IsHome }}
+	{{ partial "rich-web" . }}
+{{end}}
+
+{{ if eq .Page.Kind "page" }}
+	{{- partial "rich-summary" . -}}
+{{ end }}
+
 	{{ partial "header" . }}
 	<div id="wrap">
 		{{ block "main" . }}{{ end }}
