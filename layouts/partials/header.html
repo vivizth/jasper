@@ -1,4 +1,7 @@
 <header class="div-col flex-col">
+	{{ if .IsHome }}
+		{{ partial "adsense-general" . }}
+	{{end}}
 	<div class="logo-wrap">	
 		<a href="{{ .Site.BaseURL }}" class="logo" title="{{.Site.Title}}">
 			<img src="{{ .Site.Params.header_logo_path}}" width="32" height="32"/>
